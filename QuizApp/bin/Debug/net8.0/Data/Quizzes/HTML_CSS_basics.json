@@ -1,0 +1,117 @@
+{
+  "Id": 3,
+  "Name": "HTML & CSS Basics",
+  "Description": "Check your understanding of core HTML structure and basic CSS styling concepts.",
+  "Questions": [
+    {
+      "Id": 1,
+      "QuestionText": "Which HTML tag is used to define the largest heading?",
+      "Options": [
+        {
+          "Text": "<heading>",
+          "IsCorrect": false
+        },
+        {
+          "Text": "<h6>",
+          "IsCorrect": false
+        },
+        {
+          "Text": "<h1>",
+          "IsCorrect": true
+        },
+        {
+          "Text": "<header>",
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "QuestionText": "Which property is used to change the text color in CSS?",
+      "Options": [
+        {
+          "Text": "font-color",
+          "IsCorrect": false
+        },
+        {
+          "Text": "color",
+          "IsCorrect": true
+        },
+        {
+          "Text": "text-color",
+          "IsCorrect": false
+        },
+        {
+          "Text": "foreground",
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "QuestionText": "Which HTML element is used to create a hyperlink?",
+      "Options": [
+        {
+          "Text": "<a>",
+          "IsCorrect": true
+        },
+        {
+          "Text": "<link>",
+          "IsCorrect": false
+        },
+        {
+          "Text": "<href>",
+          "IsCorrect": false
+        },
+        {
+          "Text": "<url>",
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "QuestionText": "How do you make text bold in HTML?",
+      "Options": [
+        {
+          "Text": "<strong>",
+          "IsCorrect": true
+        },
+        {
+          "Text": "<italic>",
+          "IsCorrect": false
+        },
+        {
+          "Text": "<bold>",
+          "IsCorrect": false
+        },
+        {
+          "Text": "<bld>",
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "QuestionText": "Which CSS property controls the size of text?",
+      "Options": [
+        {
+          "Text": "font-weight",
+          "IsCorrect": false
+        },
+        {
+          "Text": "text-size",
+          "IsCorrect": false
+        },
+        {
+          "Text": "font-size",
+          "IsCorrect": true
+        },
+        {
+          "Text": "size",
+          "IsCorrect": false
+        }
+      ]
+    }
+  ]
+}

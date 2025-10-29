@@ -1,0 +1,47 @@
+﻿@model QuizResult
+
+<div class="result-container">
+    <h2 class="result-title">Quiz Result</h2>
+
+    <div class="result-summary">
+        <p>
+            You got <strong>@Model.Correct</strong> out of <strong>@Model.Total</strong> correct.
+            <br />
+            Score: <strong>@Model.ScorePercent%</strong>
+        </p>
+    </div>
+
+    @if (Model.Correct == Model.Total)
+    {
+        <p class="result-message success">🎉 All answers are correct — great job!</p>
+    }
+    else if (Model.ScorePercent >= 60)
+    {
+        <p class="result-message warning">🙂 Not bad! You can do even better!</p>
+    }
+    else
+    {
+        <p class="result-message danger">😕 Try again — you can improve!</p>
+    }
+
+    <hr />
+
+    <div class="wrong-answers">
+        @foreach (var q in Model.Questions)
+        {
+            if (!q.IsCorrect)
+            {
+                <div class="question-review">
+                    <strong>@q.QuestionText</strong><br />
+                    ❌ Your answer: <span class="wrong">@q.SelectedAnswer</span><br />
+                    ✅ Correct answer: <span class="correct">@q.CorrectAnswer</span>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="result-buttons">
+        <a asp-action="Start" asp-route-id="@Model.QuizId" class="btn btn-retake">Retake Quiz</a>
+        <a asp-action="Index" class="btn btn-back">Back to Quizzes</a>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model Quiz
+
+@{
+    int minutes = Model.Questions.Count; // 1 minute per question
+    int totalSeconds = minutes * 60;
+}
+
+<div class="quiz-container">
+    <h2 class="quiz-title">@Model.Name</h2>
+    <p class="quiz-description">@Model.Description</p>
+
+    <div id="timer" class="timer-box">
+        Time Remaining: <span id="time">--:--</span>
+    </div>
+
+    <form asp-action="Submit" method="post" class="quiz-form">
+        <input type="hidden" name="id" value="@Model.Id" />
+
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            var q = Model.Questions[i];
+            <div class="question-box">
+                <strong>@(i + 1). @q.QuestionText</strong><br />
+                @foreach (var opt in q.Options)
+                {
+                    <label class="option-label">
+                        <input type="radio" name="q_@q.Id" value="@opt.Text" />
+                        @opt.Text
+                    </label>
+                    <br />
+                }
+            </div>
+        }
+
+        <button type="submit" class="btn-submit">Submit Quiz</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        let timeLeft = @totalSeconds;
+        const timerEl = document.getElementById("time");
+        const form = document.querySelector("form");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        updateTimer();
+
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            updateTimer();
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Time is up! Submitting your quiz...");
+                form.submit();
+            }
+        }, 1000);
+    </script>
+}

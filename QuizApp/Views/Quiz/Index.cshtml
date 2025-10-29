@@ -1,0 +1,19 @@
+﻿@model IEnumerable<QuizApp.Models.Quiz>
+@{
+    ViewData["Title"] = "Quizzes";
+}
+
+<div class="quizzes-page">
+    <h2 class="page-title">Available Quizzes</h2>
+
+    <div class="quiz-grid">
+        @foreach (var quiz in Model)
+        {
+            <div class="quiz-box">
+                <h4>@quiz.Name</h4>
+                <p>@quiz.Description</p>
+                <a asp-action="Start" asp-route-id="@quiz.Id" class="btn-quiz">Start Quiz</a>
+            </div>
+        }
+    </div>
+</div>
